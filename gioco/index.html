@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IL NOSTRO GIOCO💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Musica -->
+    <audio id="BigMusic" src="audio/sottofondo.mp3" loop autoplay></audio>
+    <audio id="MoveSound" src="audio/move.mp3"></audio>
+    <audio id="WinSound" src="audio/win.mp3"></audio>
+
+    <!-- Menù principale -->
+    <div id="menu">
+        <h1>IL NOSTRO GIOCO💖</h1>        
+        <button onclick="showSection('puzzle')">Puzzle</button>
+        <button onclick="showSection('frasi')">Frasi</button>
+        <button onclick="showSection('countdown')">Countdown</button>
+    </div>
+
+    <!-- Puzzle -->
+    <div id="puzzle" class="section hidden">
+        <h2>Puzzle</h2>
+        <p>Seleziona la dimensione del puzzle:</p>
+        <select id="puzzle-size">
+            <option value="4">4x4</option>
+            <option value="5">5x5</option>
+        </select>
+        <button onclick="startPuzzle()">Inizia Puzzle</button>
+        <div id="puzzleContainer"></div>
+        <div id="puzzlePiecesPool" class="puzzlePool"></div>
+        <div id="WinMessage" class="hidden">BRAVISSIMA NANOO!!♥️♥️♥️</div>
+        <button onclick="showSection('menu')">Torna al menù</button>
+    </div>
+
+    <!-- Frasi -->
+    <div id="frasi" class="section hidden">
+        <h2>Le nostre frasi e discorsi più belli ♥️♥️</h2>
+        <p id="frase">Clicca qui per rivedere alcuni nostri discorsi</p>
+        <button onclick="showRandomFrase()">Prossima frase</button>
+        <button onclick="showSection('menu')">Torna al menù</button>
+    </div>
+
+    <!-- Countdown -->
+    <div id="countdown" class="section">
+    <h2>Countdown al nostro primo incontro 💖⏳</h2>
+    <div id="digitalClock">
+        <span id="days">00</span> : 
+        <span id="hours">00</span> : 
+        <span id="minutes">00</span> : 
+        <span id="seconds">00</span>
+    </div>
+    <h3>Eventi futuri 🔒</h3>
+    <p>Amsterdam: ????</p>
+    <p>Giappone: ????</p>
+    <p>Parigi: ????</p>
+    <p>Oslo: ????</p>
+    <p>New Orleans: ????</p>
+    <p>Mosca: ????</p>
+    <p>Disneyland: ????</p>
+    <button onclick="showSection('menu')">Torna al menù</button>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

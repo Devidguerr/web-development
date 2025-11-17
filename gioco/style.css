@@ -1,0 +1,158 @@
+/* Generali */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    background-color: #ffe4e1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #ff69b4;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #ff69b4;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #ff85c1;
+    transform: scale(1.05);
+}
+
+/* Sezioni */
+.section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.section.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Puzzle container */
+#puzzleContainer {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(var(--size), 1fr);
+    grid-template-rows: repeat(var(--size), 1fr);
+    gap: 0;
+    background-color: #fff3f6;
+}
+
+/* Pezzi puzzle */
+.puzzlePiece {
+    border: 2px solid #fff;
+    background-size: contain;
+    background-position: center;
+    cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: auto;   /* puoi adattare per puzzle 4x4 o 5x5 */
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.puzzlePiece:hover {
+    transform: scale(1.1);
+}
+
+/* Pezzo corretto */
+.correct {
+    box-shadow: 0 0 20px gold;
+    animation: glow 1s infinite alternate;
+}
+
+/* Animazioni */
+@keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px gold; }
+    to { box-shadow: 0 0 25px gold; }
+}
+
+/* Messaggio vittoria */
+#WinMessage {
+    font-size: 24px;
+    color: #ff1493;
+    margin-top: 20px;
+    animation: pop 1s ease;
+}
+
+.hidden {
+    display: none;
+}
+#digitalClock {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3em;
+    background: #ffccdd;
+    color: #ff1493;
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #ff69b4;
+    margin-top: 20px;
+}
+#digitalClock span {
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+}
+/* --- CONTROLLO MENU --- */
+#menu {
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+#menu.hidden-menu {
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none; /* impedisce click quando è nascosto */
+}
+
+#menu.visible-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#puzzlePiecesPool {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+#puzzlePiecesPool .puzzlePiece {
+    width: 80px;
+    height: 80px;
+    cursor: grab;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #fff;
+}
+.puzzleSlot {
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    background-color: #fff3f6;
+    width: 100%;
+    height: 100%;
+}
